@@ -1,3 +1,15 @@
-p {
-    color: red;
+@import url('./fonts.css');
+  
+.bree {
+    font-family: 'Bree Serif';
 }
+
+.mont {
+    font-family: 'Montserrat';
+}
+
+.robo {
+    font-family: 'Roboto';
+}
+
+
