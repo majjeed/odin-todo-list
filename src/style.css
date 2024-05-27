@@ -2,10 +2,21 @@
 
 :root {
     --background-neutral: #fefdfc;
+    --azure: #007bffff;
+    --celeste: #c5fffdff;
+    --non-photo-blue: #88d9e6ff;
+    --tea-rose-red: #cfb1b7ff;
+    --desert-sand: #e4be9eff;
 }
 
 html {
     background-color: var(--background-neutral);
+}
+
+body {
+    width: 75%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .bree {
@@ -29,30 +40,65 @@ html {
 }
 
 .nav-divider {
-    background-color: rgba(37,34,30,.2);
+    background-color: rgba(37, 34, 30, .2);
     block-size: 24px;
     border: none;
     inline-size: 3px;
-    margin: 0 40px 0 40px;
+    margin: 0 20px 0 20px;
 }
 
-.nav-links, .nav-links ul, .nav-logos {
+.nav-links,
+.nav-links ul,
+.nav-logos {
     display: flex;
     list-style: none;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    padding: 5px;
+}
+
 .logo-img {
-    max-width: 50px;
-    fill: aqua;
+    max-width: 40px;
 }
 
 .logo-text {
     font-size: 36px;
-    color: blue;
+    color: var(--azure);
 }
 
-/* .nav-logos {
-    background-color: aqua;
-} */
+nav button {
+    cursor: pointer;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 7px;
+    background-color: var(--background-neutral);
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: var(--desert-sand);
+    transform: scale(1.05);
+}
+
+nav button:active {
+    transform: scale(0.95);
+}
+
+nav ul:last-of-type li:last-of-type button {
+    background-color: var(--azure);
+}
+
+nav ul:last-of-type li:last-of-type button:hover {
+    background-color: rgba(0, 123, 255, 0.8);
+}

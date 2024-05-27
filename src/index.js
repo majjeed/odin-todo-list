@@ -1,4 +1,5 @@
 import './style.css';
+//import html from './index.html';
 import Icon from "./images/sailboat-boat-svgrepo-com.svg";
 
 function component() {
