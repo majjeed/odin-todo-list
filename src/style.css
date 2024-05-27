@@ -102,3 +102,40 @@ nav ul:last-of-type li:last-of-type button {
 nav ul:last-of-type li:last-of-type button:hover {
     background-color: rgba(0, 123, 255, 0.8);
 }
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: rgba(207, 177, 183, 0.502);
+}
+
+.searchBar input {
+    flex: 1;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    background-color: var(--tea-rose-red);
+    outline: none;
+    height: 20px;
+    padding-left: 5px;
+}
+
+.searchIcon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: var(--tea-rose-red);
+}
+
+.heroSection {
+    width: 50%;
+    margin: 100px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
