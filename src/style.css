@@ -1,5 +1,13 @@
 @import url('./fonts.css');
 
+:root {
+    --background-neutral: #fefdfc;
+}
+
+html {
+    background-color: var(--background-neutral);
+}
+
 .bree {
     font-family: 'Bree Serif';
 }
@@ -28,8 +36,23 @@
     margin: 0 40px 0 40px;
 }
 
-.nav-links, .nav-links ul {
+.nav-links, .nav-links ul, .nav-logos {
     display: flex;
     list-style: none;
     gap: 5px;
+    align-items: center;
 }
+
+.logo-img {
+    max-width: 50px;
+    fill: aqua;
+}
+
+.logo-text {
+    font-size: 36px;
+    color: blue;
+}
+
+/* .nav-logos {
+    background-color: aqua;
+} */
