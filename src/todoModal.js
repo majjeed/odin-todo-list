@@ -31,7 +31,9 @@ const initializeToDoModal = () => {
     const cancelBtn = document.createElement('button');
     cancelBtn.type = 'button';
     cancelBtn.textContent = 'Cancel';
-    cancelBtn.addEventListener('click', () => todoDialog.close());
+    cancelBtn.addEventListener('click', () => {
+        todoDialog.close();
+    });
 
     const confirmBtn = document.createElement('button');
     confirmBtn.type = 'submit';

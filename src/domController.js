@@ -37,14 +37,31 @@ const DomController = () => {
     const renderTodos = () => {
         todosDiv.innerHTML = '';
 
-        const todoListElement = document.createElement('ul');
         currentProject.getTodos().forEach(todo => {
-            const todoItemElement = document.createElement('li');
-            todoItemElement.textContent = todo.display();
-            todoListElement.appendChild(todoItemElement);
-        });
+            const todoCard = document.createElement('div');
+            todoCard.classList.add('todo-card');
 
-        todosDiv.appendChild(todoListElement);
+            const titleElement = document.createElement('h3');
+            titleElement.textContent = todo.title;
+
+            const descriptionElement = document.createElement('p');
+            descriptionElement.textContent = todo.description;
+
+            const dateElement = document.createElement('p');
+            dateElement.classList.add('todo-date');
+            dateElement.textContent = `Due: ${todo.dueDate || 'No date set'}`;
+
+            const priorityElement = document.createElement('p');
+            priorityElement.classList.add('todo-priority');
+            priorityElement.textContent = `Priority: ${todo.priority || 'No priority set'}`;
+
+            todoCard.appendChild(titleElement);
+            todoCard.appendChild(descriptionElement);
+            todoCard.appendChild(dateElement);
+            todoCard.appendChild(priorityElement);
+
+            todosDiv.appendChild(todoCard);
+        });
     };
 
     newProjectBtn.addEventListener('click', async () => {

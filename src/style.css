@@ -190,3 +190,57 @@ nav ul:last-of-type li:last-of-type button:hover {
     flex-direction: column;
     gap: 10px;
 }
+
+/* Add this to your existing CSS file or create a new one */
+.todos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.todo-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+}
+
+.todo-card h3 {
+    margin: 0;
+    font-size: 1.25em;
+}
+
+.todo-card p {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.todo-card .todo-date,
+.todo-card .todo-priority {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 10px;
+}
+
+.todo-card .todo-priority {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .todos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .todos {
+        grid-template-columns: 1fr;
+    }
+}
