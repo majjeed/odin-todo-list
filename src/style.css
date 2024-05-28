@@ -59,6 +59,13 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 75%;
+    background-color: var(--background-neutral);
 }
 
 nav ul {
@@ -144,14 +151,16 @@ nav ul:last-of-type li:last-of-type button:hover {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
+    height: 90vh;
+    background-color: var(--celeste);
 }
 
 .projects {
     background-color: var(--tea-rose-red);
-    height: 500px;
+    min-height: 100%;
 }
 
 .todos {
     background-color: var(--desert-sand);
-    height: 500px;
+    min-height: 100%;
 }
