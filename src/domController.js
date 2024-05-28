@@ -1,6 +1,7 @@
 import { ToDo } from "./ToDo";
 import { Project } from "./Project";
 import { initializeModal } from "./modal";
+import { initializeToDoModal } from "./todoModal";
 
 const DomController = () => {
     const newToDoBtn = document.querySelector('.newToDo');
@@ -55,14 +56,14 @@ const DomController = () => {
         }
     });
 
-    newToDoBtn.addEventListener('click', () => {
-        const title = 'New Todo'; // Get todo details from user input if needed
-        const description = 'Todo description';
-        const dueDate = '2024-05-29';
-        const priority = 'High';
-        const newTodo = new ToDo(title, description, dueDate, priority);
-        currentProject.addTodo(newTodo); // Add todo to current project
-        renderTodos();
+    newToDoBtn.addEventListener('click', async () => {
+        const todoData = await initializeToDoModal(); // Get todo details from user input
+        if (todoData) {
+            const { title, description, dueDate, priority } = todoData;
+            const newTodo = new ToDo(title, description, dueDate, priority);
+            currentProject.addTodo(newTodo); // Add todo to current project
+            renderTodos();
+        }
     });
 
     renderProjects(); // Initial rendering
