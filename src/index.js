@@ -1,6 +1,6 @@
 import './style.css';
-//import html from './index.html';
 import Icon from "./images/sailboat-boat-svgrepo-com.svg";
+import { ToDo } from './ToDo.js';
 
 function component() {
     const element = document.createElement('div');
@@ -13,12 +13,15 @@ function component() {
     const myIcon = new Image();
     myIcon.src = Icon;
 
-    element.appendChild(myIcon);
+    //element.appendChild(myIcon);
 
     // const logo = document.querySelector('.logo-img');
     // logo.src = Icon;
-
+    let todo = new ToDo('mark', 'facebook project');
+    console.log(todo.display()); 
+    window.ToDo = ToDo;
     return element;
 }
 
-//document.body.appendChild(component());
+document.body.appendChild(component());
+

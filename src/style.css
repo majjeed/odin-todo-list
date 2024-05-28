@@ -139,3 +139,19 @@ nav ul:last-of-type li:last-of-type button:hover {
     align-items: center;
     gap: 20px;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+}
+
+.projects {
+    background-color: var(--tea-rose-red);
+    height: 500px;
+}
+
+.todos {
+    background-color: var(--desert-sand);
+    height: 500px;
+}
