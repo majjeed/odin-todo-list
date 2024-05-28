@@ -12,7 +12,7 @@ const DomController = () => {
     const defaultProject = new Project('Default');
     projects.push(defaultProject); // Add default project to the projects array
 
-    let currentProject = projects[0]; //the project that we will use to render its todo items
+    let currentProject = defaultProject; // The project whose todos are currently being displayed
 
     const renderProjects = () => {
         projectsDiv.innerHTML = '';
@@ -20,10 +20,13 @@ const DomController = () => {
         projects.forEach(project => {
             const projectElement = document.createElement('div');
             projectElement.classList.add('project');
+            projectElement.textContent = project.name;
 
-            const projectNameElement = document.createElement('h3');
-            projectNameElement.textContent = project.name;
-            projectElement.appendChild(projectNameElement);
+            // Add click event listener to switch current project
+            projectElement.addEventListener('click', () => {
+                currentProject = project;
+                renderTodos();
+            });
 
             projectsDiv.appendChild(projectElement);
         });
@@ -32,26 +35,21 @@ const DomController = () => {
     const renderTodos = () => {
         todosDiv.innerHTML = '';
 
-        const projectElementTodo = document.createElement('div');
-        projectElementTodo.classList.add('todo');
-
         const todoListElement = document.createElement('ul');
         currentProject.getTodos().forEach(todo => {
             const todoItemElement = document.createElement('li');
             todoItemElement.textContent = todo.display();
             todoListElement.appendChild(todoItemElement);
         });
-        projectElementTodo.appendChild(todoListElement);
 
-        todosDiv.appendChild(projectElementTodo);
-    }
+        todosDiv.appendChild(todoListElement);
+    };
 
     newProjectBtn.addEventListener('click', () => {
         const newProjectName = 'New Project'; // Get project name from user input if needed
         const newProject = new Project(newProjectName);
         projects.push(newProject); // Add new project to the projects array
         renderProjects();
-        renderTodos();
     });
 
     newToDoBtn.addEventListener('click', () => {
@@ -60,13 +58,12 @@ const DomController = () => {
         const dueDate = '2024-05-29';
         const priority = 'High';
         const newTodo = new ToDo(title, description, dueDate, priority);
-        defaultProject.addTodo(newTodo); // Add todo to default project for now
-        renderProjects();
+        currentProject.addTodo(newTodo); // Add todo to current project
         renderTodos();
     });
 
     renderProjects(); // Initial rendering
-    renderTodos();
+    renderTodos(); // Initial rendering of todos for default project
 };
 
 export { DomController };
