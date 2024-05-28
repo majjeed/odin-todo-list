@@ -1,27 +1,17 @@
 import './style.css';
 import Icon from "./images/sailboat-boat-svgrepo-com.svg";
 import { ToDo } from './ToDo.js';
+import { Project } from './Project.js';
 
-function component() {
-    const element = document.createElement('div');
+const projectsDiv = document.querySelector('.projects');
 
-    // Lodash, now imported by this script
+const newToDoBtn = document.querySelector('.newToDo');
+const newProjectBtn = document.querySelector('.newProject');
 
-    element.classList.add('hello');
+newProjectBtn.addEventListener('click', () => {
+    let newProject = new Project('Default');
+    projectsDiv.appendChild(newProject);
+})
 
-    // Add the image to our existing div.
-    const myIcon = new Image();
-    myIcon.src = Icon;
-
-    //element.appendChild(myIcon);
-
-    // const logo = document.querySelector('.logo-img');
-    // logo.src = Icon;
-    let todo = new ToDo('mark', 'facebook project');
-    console.log(todo.display()); 
-    window.ToDo = ToDo;
-    return element;
-}
-
-document.body.appendChild(component());
-
+let todo = new ToDo('mark', 'facebook project');
+console.log(todo.display()); 
