@@ -1,5 +1,6 @@
 import { ToDo } from "./ToDo";
 import { Project } from "./Project";
+import { initializeModal } from "./modal";
 
 const DomController = () => {
     const newToDoBtn = document.querySelector('.newToDo');
@@ -46,6 +47,7 @@ const DomController = () => {
     };
 
     newProjectBtn.addEventListener('click', () => {
+        initializeModal();
         const newProjectName = 'New Project'; // Get project name from user input if needed
         const newProject = new Project(newProjectName);
         projects.push(newProject); // Add new project to the projects array

@@ -57,6 +57,26 @@
             </div>
         </div>
 
+        <dialog class="newProjectDialog">
+            <form>
+                <p>
+                    <label>
+                        New Project Name:
+                        <input type="text" class="newProjectInput">
+                    </label>
+                </p>
+                <div>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                    <button id="confirmBtn" value="default">Confirm</button>
+                </div>
+            </form>
+        </dialog>
+        <p>
+            <button id="showDialog">Show the dialog</button>
+        </p>
+        <output></output>
+
+
         <div class="containerButtons">
             <button class="newToDo">Create Todo</button>
             <button class="newProject">Create Project</button>
