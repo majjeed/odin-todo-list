@@ -1,45 +1,13 @@
 class ToDo {
     constructor(title, description, dueDate = "", priority = "") {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
+        this._title = title;
+        this._description = description;
+        this._dueDate = dueDate;
+        this._priority = priority;
     }
 
     display() {
-        return `${this.title}: ${this.description} (Due: ${this.dueDate}, Priority: ${this.priority})`;
-    }
-
-    get title() {
-        return this._title;
-    }
-
-    get description() {
-        return this._description;
-    }
-
-    get dueDate() {
-        return this._dueDate;
-    }
-
-    get priority() {
-        return this._priority;
-    }
-
-    set title(value) {
-        this._title = value;
-    }
-
-    set description(value) {
-        this._description = value;
-    }
-
-    set dueDate(value) {
-        this._dueDate = value;
-    }
-
-    set priority(value) {
-        this._priority = value;
+        return `${this._title}: ${this._description} (Due: ${this._dueDate}, Priority: ${this._priority})`;
     }
 }
 
