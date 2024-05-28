@@ -82,7 +82,9 @@ nav ul {
     color: var(--azure);
 }
 
-nav button, .containerButtons button {
+nav button,
+.containerButtons button,
+.newProjectDialog button {
     cursor: pointer;
     border: none;
     padding: 8px 16px;
@@ -94,12 +96,16 @@ nav button, .containerButtons button {
     font-size: 16px;
 }
 
-nav button:hover, .containerButtons button:hover {
+nav button:hover,
+.containerButtons button:hover,
+.newProjectDialog button:hover {
     background-color: var(--desert-sand);
     transform: scale(1.05);
 }
 
-nav button:active, .containerButtons button:active {
+nav button:active,
+.containerButtons button:active,
+.newProjectDialog button:active {
     transform: scale(0.95);
 }
 
@@ -167,4 +173,13 @@ nav ul:last-of-type li:last-of-type button:hover {
 .todos {
     background-color: var(--desert-sand);
     min-height: 100%;
+}
+
+.newProjectDialog {
+    position: absolute;
+    margin: auto auto;
+    padding: 40px 20px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
 }

@@ -46,12 +46,13 @@ const DomController = () => {
         todosDiv.appendChild(todoListElement);
     };
 
-    newProjectBtn.addEventListener('click', () => {
-        initializeModal();
-        const newProjectName = 'New Project'; // Get project name from user input if needed
-        const newProject = new Project(newProjectName);
-        projects.push(newProject); // Add new project to the projects array
-        renderProjects();
+    newProjectBtn.addEventListener('click', async () => {
+        const newProjectName = await initializeModal(); // Get project name from user input if needed
+        if (newProjectName) {
+            const newProject = new Project(newProjectName);
+            projects.push(newProject); // Add new project to the projects array
+            renderProjects();
+        }
     });
 
     newToDoBtn.addEventListener('click', () => {
