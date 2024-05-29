@@ -15,6 +15,10 @@ class Project {
     get name() {
         return this._name;
     }
+
+    removeTodoByTitle(title) {
+        this._todos = this._todos.filter(todo => todo.title !== title);
+    }
 }
 
 export { Project };

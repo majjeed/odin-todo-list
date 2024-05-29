@@ -41,6 +41,14 @@ const DomController = () => {
             const todoCard = document.createElement('div');
             todoCard.classList.add('todo-card');
 
+            const delBtn = document.createElement('button');
+            delBtn.classList.add('delTodo');
+            delBtn.textContent = 'X';
+            delBtn.addEventListener('click', () => {
+                currentProject.removeTodoByTitle(todo.title);
+                renderTodos();
+            });
+
             const titleElement = document.createElement('h3');
             titleElement.textContent = todo.title;
 
@@ -55,6 +63,7 @@ const DomController = () => {
             priorityElement.classList.add('todo-priority');
             priorityElement.textContent = `Priority: ${todo.priority || 'No priority set'}`;
 
+            todoCard.appendChild(delBtn);
             todoCard.appendChild(titleElement);
             todoCard.appendChild(descriptionElement);
             todoCard.appendChild(dateElement);

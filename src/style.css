@@ -272,3 +272,12 @@ nav ul:last-of-type li:last-of-type button:hover {
     box-shadow: 0px 0px 5px -1px #0000005e;
     margin: 5px 10px;
 }
+
+.delTodo {
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 0px 5px -1px #0000005e;
+    padding: 5px 9px;
+    align-self: end;
+    margin-bottom: -30px;
+}
