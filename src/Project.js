@@ -1,23 +1,19 @@
 class Project {
     constructor(name) {
-        this._name = name;
-        this._todos = [];
+        this.name = name;
+        this.todos = [];
     }
 
     addTodo(todo) {
-        this._todos.push(todo);
+        this.todos.push(todo);
     }
 
     getTodos() {
-        return this._todos;
-    }
-
-    get name() {
-        return this._name;
+        return this.todos;
     }
 
     removeTodoByTitle(title) {
-        this._todos = this._todos.filter(todo => todo.title !== title);
+        this.todos = this.todos.filter(todo => todo.title !== title);
     }
 }
 

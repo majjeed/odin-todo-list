@@ -2,6 +2,7 @@ import { ToDo } from "./ToDo";
 import { Project } from "./Project";
 import { initializeModal } from "./modal";
 import { initializeToDoModal } from "./todoModal";
+import { saveProjectsToLocalStorage, loadProjectsFromLocalStorage } from "./localStorage";
 
 const DomController = () => {
     const newToDoBtn = document.querySelector('.newToDo');
@@ -9,12 +10,14 @@ const DomController = () => {
     const projectsDiv = document.querySelector('.projects');
     const todosDiv = document.querySelector('.todos');
 
-    let projects = []; // Array to hold project instances
+    // Load projects from localStorage or initialize with default project
+    let projects = loadProjectsFromLocalStorage();
+    if (projects.length === 0) {
+        const defaultProject = new Project('Default');
+        projects.push(defaultProject); // Add default project to the projects array
+    }
 
-    const defaultProject = new Project('Default');
-    projects.push(defaultProject); // Add default project to the projects array
-
-    let currentProject = defaultProject; // The project whose todos are currently being displayed
+    let currentProject = projects[0]; // The project whose todos are currently being displayed
 
     const renderProjects = () => {
         projectsDiv.innerHTML = '';
@@ -47,6 +50,7 @@ const DomController = () => {
             delBtn.addEventListener('click', () => {
                 currentProject.removeTodoByTitle(todo.title);
                 renderTodos();
+                saveProjectsToLocalStorage(projects); // Save projects after deletion
             });
 
             const titleElement = document.createElement('h3');
@@ -79,6 +83,7 @@ const DomController = () => {
             const newProject = new Project(newProjectName);
             projects.push(newProject); // Add new project to the projects array
             renderProjects();
+            saveProjectsToLocalStorage(projects); // Save projects after adding a new project
         }
     });
 
@@ -89,6 +94,7 @@ const DomController = () => {
             const newTodo = new ToDo(title, description, dueDate, priority);
             currentProject.addTodo(newTodo); // Add todo to current project
             renderTodos();
+            saveProjectsToLocalStorage(projects); // Save projects after adding a new todo
         }
     });
 
